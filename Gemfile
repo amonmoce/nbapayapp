@@ -11,12 +11,8 @@ gem 'tilt'
 gem 'haml'
 gem 'sinatra-flash'
 
-group :development do  
+group :development do
   gem 'tux'
-end
-
-group :production do
-  gem 'pg'
 end
 
 group :test do
