@@ -1,0 +1,54 @@
+.container
+
+  %form{action: '/comparisons', method: 'post', id: 'team-form'}
+    %div{:align => "center"}
+      %select{:name => "teamname", class: 'styled_select'}
+        %option{:value => "default"} SELECT TEAM
+        %option{:value => "PHO"} Pheonix Suns
+        %option{:value => "MIA"} Miami Heat
+        %option{:value => "ATL"} Atlanta Hawks
+        %option{:value => "BOS"} Boston Celtics
+        %option{:value => "BRK"} Brooklyn Nets
+        %option{:value => "CHI"} Chicago Bulls
+        %option{:value => "CLE"} Cleveland Cavaliers
+        %option{:value => "DAL"} Dallas Mavericks
+        %option{:value => "DEN"} Denver Nuggets
+        %option{:value => "GSW"} Golden State Warriors
+        %option{:value => "DET"} Detroit Pistons
+        %option{:value => "LAL"} Los Angeles Lakers
+        %option{:value => "LAC"} Los Angeles Clippers
+        %option{:value => "HOU"} Houston Rockets
+        %option{:value => "IND"} Indiana Pacers
+        %option{:value => "MIN"} Minnesota Timberwolves
+        %option{:value => "MEM"} Memphis Grizzlies
+        %option{:value => "MIL"} Milwuakee Bucks
+        %option{:value => "NOP"} New Orleans Pelicans
+        %option{:value => "NYK"} New York Knicks
+        %option{:value => "OKC"} Oklahoma City Thunder
+        %option{:value => "SAC"} Sacramento Kings
+        %option{:value => "WAS"} Washington Wizards
+        %option{:value => "UTA"} Utah Jazz
+        %option{:value => "SAS"} San Antonio Spurs
+        %option{:value => "TOR"} Toronto Raptors
+        %option{:value => "PHI"} Philadephia 76ers
+        %option{:value => "POR"} Portland TrailBlazers
+        %option{:value => "ORL"} Orlando Magic
+        %option{:value => "CHO"} Charlotte Hornets
+      %br
+      %br
+      %div{:align => "center"}
+        %input{type: 'text', name: 'playername1', class:'textbox', id: 'home-form-playername1', placeholder: 'First Player here...'}
+        %input{type: 'text', name: 'playername2', class:'textbox', id: 'home-form-playername2', placeholder: 'Second Player here...'}
+        %input{type: 'submit', id: 'home-form-submit', class: 'submit', value: 'submit'}
+      %p
+
+
+  -if @results
+    %label{} #{@results}
+
+    %form{:action => "/comparisons/#{@id}" , :method => 'post' , :id => 'delete-form'}
+      - if @action == :update
+        %input{:type => 'submit' , :name => '_method', :class => 'submit', :value => 'delete'}
+    %form{:action => "/comparisons/#{@id}" , :method => 'post' , :id => 'put-form'}
+      - if @action == :update
+        %input{:type => 'submit' , :name => '_method', :class => 'submit', :value => 'put'}
