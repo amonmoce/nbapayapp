@@ -19,6 +19,7 @@ class TeamPay < Sinatra::Base
   end
 
   API_BASE_URI = 'http://nbapayservice.herokuapp.com'
+  #API_BASE_URI = 'http://localhost:9393'
   API_VER = '/api/v1/'
 
   helpers do
