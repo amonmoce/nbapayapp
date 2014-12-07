@@ -50,7 +50,7 @@ class TeamPay < Sinatra::Base
 
   get '/salary/:teamname' do
     @teamname = params[:teamname]
-    @salary = get_team(@teamname)
+    @salary = HTTParty.get api_url("#{@teamname}.json")
 
     if @salary.nil?
       flash[:notice] = 'Please select team from list' if @salary.nil?
