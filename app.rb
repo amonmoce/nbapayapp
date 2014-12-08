@@ -133,10 +133,16 @@ class TeamPay < Sinatra::Base
       @teamname = session[:teamname]
       @playername = session[:playername1]
       @playername2 = session[:playername2]
+      session.clear
     else
       request_url = "#{API_BASE_URI}/api/v1/comparisons/#{params[:id]}"
       options =  { headers: { 'Content-Type' => 'application/json' } }
       result = HTTParty.get(request_url, options)
+      if result.code == 404
+        flash[:notice] = 'This record is not a comparision ... try total salary'
+        redirect '/comparisons'
+        return nil
+      end
       @results = result
       @id = params[:id]
     end
@@ -144,28 +150,6 @@ class TeamPay < Sinatra::Base
     @id = params[:id]
     @action = :update
     haml :comparisons
-  end
-
-  post '/api/v1/comparisons' do
-    content_type :json
-
-    body = request.body.read
-    logger.info body
-    begin
-      req = JSON.parse(body)
-      logger.info req
-    rescue Exception => e
-      puts e.message
-      halt 400
-    end
-    incomes = Income.new
-    incomes.teamname = req['teamname']
-    incomes.playername1 = req['playername1']
-    incomes.playername2 = req['playername2']
-
-    if incomes.save
-      redirect "/api/v1/comparisons/#{incomes.id}"
-    end
   end
 
   get '/playertotal' do
@@ -197,7 +181,7 @@ class TeamPay < Sinatra::Base
     end
 
     id = result.request.last_uri.path.split('/').last
-    session[:result] = result.to_json
+    session[:result] = JSON.parse(result.body)
     session[:playername1] = playername1
     session[:teamname] = teamname
     session[:action] = :create
@@ -206,15 +190,25 @@ class TeamPay < Sinatra::Base
 
   get '/playertotal/:id' do
     if session[:action] == :create
-      @fullpay = session[:result]
+      if !session[:result][0].nil?
+        @fullpay = session[:result][0][0]
+      end
       @teamname2 = session[:teamname]
       @playername2 = session[:playername1]
+      session.clear
     else
       request_url = "#{API_BASE_URI}/api/v1/playertotal/#{params[:id]}"
       options =  { headers: { 'Content-Type' => 'application/json' } }
       result = HTTParty.get(request_url, options)
-      @fullpay = JSON.parse(result)
-
+      if result.code == 400
+        flash[:notice] = 'This record does not exist'
+        redirect '/playertotal'
+        return nil
+      end
+       arrayOfArrayOfJson = JSON.parse(result.body)
+       if !arrayOfArrayOfJson[0].nil?
+         @fullpay = arrayOfArrayOfJson[0][0]
+       end
     end
 
     @id = params[:id]
