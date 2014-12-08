@@ -1,0 +1,30 @@
+#header_wrapper
+  %nav{:id => 'menu'}
+    %ul
+      - if current_page?
+        %li{:class => "current_page_item"}
+          %a{:href => '/', :id => 'home'} Home
+      - else
+        %li{:class => "non-current_page_item"}
+          %a{:href => '/', :id => 'home'} Home
+
+      - if current_page?('salary')
+        %li{:class => "current_page_item"}
+          %a{:href => '/salary', :id => 'salary'} Team Salary
+      - else
+        %li{:class => "non-current_page_item"}
+          %a{:href => '/salary', :id => 'salary'} Team Salary
+
+      - if current_page?('comparisons')
+        %li{:class => "current_page_item"}
+          %a{:href => '/comparisons', :id => 'comparisons'} Compare Salaries
+      - else
+        %li{:class => "non-current_page_item"}
+          %a{:href => '/comparisons', :id => 'comparisons'} Compare Salaries
+
+      - if current_page?('playertotal')
+        %li{:class => "current_page_item"}
+          %a{:href => '/playertotal', :id => 'playertotal'} Total Salary
+      - else
+        %li{:class => "non-current_page_item"}
+          %a{:href => '/playertotal', :id => 'playertotal'} Total Salary
