@@ -133,10 +133,16 @@ class TeamPay < Sinatra::Base
       @teamname = session[:teamname]
       @playername = session[:playername1]
       @playername2 = session[:playername2]
+      session.clear
     else
       request_url = "#{API_BASE_URI}/api/v1/comparisons/#{params[:id]}"
       options =  { headers: { 'Content-Type' => 'application/json' } }
       result = HTTParty.get(request_url, options)
+      if result.code == 404
+        flash[:notice] = 'This record is not a comparision ... try total salary'
+        redirect '/comparisons'
+        return nil
+      end
       @results = result
       @id = params[:id]
     end
