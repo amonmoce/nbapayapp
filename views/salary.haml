@@ -1,0 +1,77 @@
+.container
+
+  %form{action: '/salary', method: 'get', id: 'team-form'}
+    %div{:align => "center"}
+      %select{:name => "teamname", class: 'styled_select'}
+        %option{:value => "default"} SELECT TEAM
+        %option{:value => "PHO"} Pheonix Suns
+        %option{:value => "MIA"} Miami Heat
+        %option{:value => "ATL"} Atlanta Hawks
+        %option{:value => "BOS"} Boston Celtics
+        %option{:value => "BRK"} Brooklyn Nets
+        %option{:value => "CHI"} Chicago Bulls
+        %option{:value => "CLE"} Cleveland Cavaliers
+        %option{:value => "DAL"} Dallas Mavericks
+        %option{:value => "DEN"} Denver Nuggets
+        %option{:value => "GSW"} Golden State Warriors
+        %option{:value => "DET"} Detroit Pistons
+        %option{:value => "LAL"} Los Angeles Lakers
+        %option{:value => "LAC"} Los Angeles Clippers
+        %option{:value => "HOU"} Houston Rockets
+        %option{:value => "IND"} Indiana Pacers
+        %option{:value => "MIN"} Minnesota Timberwolves
+        %option{:value => "MEM"} Memphis Grizzlies
+        %option{:value => "MIL"} Milwuakee Bucks
+        %option{:value => "NOP"} New Orleans Pelicans
+        %option{:value => "NYK"} New York Knicks
+        %option{:value => "OKC"} Oklahoma City Thunder
+        %option{:value => "SAC"} Sacramento Kings
+        %option{:value => "WAS"} Washington Wizards
+        %option{:value => "UTA"} Utah Jazz
+        %option{:value => "SAS"} San Antonio Spurs
+        %option{:value => "TOR"} Toronto Raptors
+        %option{:value => "PHI"} Philadephia 76ers
+        %option{:value => "POR"} Portland TrailBlazers
+        %option{:value => "ORL"} Orlando Magic
+        %option{:value => "CHO"} Charlotte Hornets
+      %br
+      %br
+      %div{:align => "center"}
+        / %input{type: 'text', name: 'playername', class:'textbox', id: 'home-form-playername', placeholder: 'Player Name here...'}
+        %input{type: 'submit', id: 'home-form-submit', class: 'submit', value: 'submit'}
+      %p
+
+      -if @salary
+        %table{class: 'center', :border => '1'}
+          %caption Team pay for #{@teamname}
+          %tbody
+            %tr
+              %th Player
+              %th 2014-15
+              %th 2015-16
+              %th 2016-17
+              %th 2017-18
+              %th 2018-19
+              %th 2019-20
+              %th Signed Using
+              %th Guaranted
+            -@salary.each do |player|
+              %tr
+                %td
+                  = player['Player']
+                %td{width: '300'}
+                  = player['2014-15']
+                %td{width: '300'}
+                  = player['2015-16']
+                %td{width: '300'}
+                  = player['2016-17']
+                %td{width: '300'}
+                  = player['2017-18']
+                %td{width: '300'}
+                  = player['2018-19']
+                %td{width: '300'}
+                  = player['2019-20']
+                %td{width: '300'}
+                  = player['Signed Using']
+                %td{width: '300'}
+                  = player['Guaranteed']

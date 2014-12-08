@@ -1,0 +1,235 @@
+/*HTML tag*/
+
+html, body
+{
+	height: 100%;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 12pt;
+	font-weight: 400;
+	color: #000000;
+}
+#foot{
+
+  width: 450px ;
+  margin-left: auto ;
+  margin-right: auto ;
+	background-color:#ffffff;
+	border:#ff6816 1px solid;
+	border-radius: 8px;
+	background: #dda304; /* Old browsers */
+background: #dbdbdb; /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  #dbdbdb 26%, #fffaf9 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(26%,#dbdbdb), color-stop(100%,#fffaf9)); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  #dbdbdb 26%,#fffaf9 100%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  #dbdbdb 26%,#fffaf9 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  #dbdbdb 26%,#fffaf9 100%); /* IE10+ */
+background: radial-gradient(ellipse at center,  #dbdbdb 26%,#fffaf9 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbdbdb', endColorstr='#fffaf9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
+
+}
+h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+}
+
+p, ol, ul {
+	margin-top: 0;
+}
+
+ol, ul {
+	padding: 0;
+	list-style: none;
+}
+
+p {
+	line-height: 180%;
+}
+
+a
+{
+	color: #0000FF;
+}
+
+a .lightlink {
+	color: #DDDDDD;
+}
+
+table, th, td
+{
+	text-align: center;
+	background: #FAFAFA;
+}
+
+table.center {
+	margin-left:auto;
+	margin-right:auto;
+}
+
+section {
+	background: url(images/background.png);
+}
+
+div.flash {
+	text-align: center;
+	color: #FFFFFF;
+	font-weight: bold;
+	background: #FF0000;
+
+}
+
+/*Header*/
+
+#header_wrapper {
+	overflow: hidden;
+	padding: 3em 0em;
+	background: #8DCB89 url(images/header.jpg) no-repeat center;
+	background-size: cover;
+}
+
+/*Menu*/
+#menu ul
+{
+	text-align: center;
+}
+
+#menu li
+{
+	display: inline-block;
+}
+
+#menu li a, #menu li span
+{
+	display: inline-block;
+	margin-left: 0.50em;
+	padding: 1em 1.5em;
+	letter-spacing: 0.20em;
+	text-decoration: none;
+	font-size: 0.90em;
+	font-weight: 600;
+	text-transform: uppercase;
+	outline: 0;
+	color: #FFF;
+}
+
+#menu .current_page_item a
+{
+	background: #ff6816;
+	border-radius: 8px;
+	color: #FFF;
+}
+#menu .non-current_page_item a
+{
+	background: #000000;
+	border-radius: 8px;
+	color: #FFF;
+	border:#FFFFFF 1px solid;
+	color:#ff6816;
+}
+
+/*Title*/
+
+.title
+{
+	margin-bottom: 3em;
+}
+
+.title h2
+{
+	font-size: 2.8em;
+}
+
+.title .byline
+{
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 1.1em;
+	color: #6F6F6F;
+}
+
+.container{
+		text-align: center;
+		margin: 0px auto;
+		width: 1000px;
+		overflow: hidden;
+		padding: 5em 0em;
+		color: rgba(0,0,0,0.5);
+	}
+
+
+/*********************************************************************************/
+/* Form Style                                                                    */
+/*********************************************************************************/
+form label
+{
+	display: block;
+	margin-bottom: 0.5em;
+}
+
+
+form .submit{
+	background: #8DCB89;
+	border-radius: 3px;
+	height: 29px;
+	width:100px;
+}
+
+.footer {
+	overflow: hidden;
+	padding: 5em 0em;
+	background: url(images/footer.jpg) center;
+	border-top: 1px solid rgba(255,255,255,0.08);
+	text-align: center;
+	color: green;
+
+}
+.textbox {
+	width: 200px;
+	height: 20px;
+	border: solid 2px #5A95E5;
+	padding: 2px;
+	border-radius: 5px;
+	font-size: 12px;
+	box-shadow: 0px 1px 2px 0px #5A95E5;
+	background-color: white;
+	outline: none;
+	color: #474747;
+}
+.textbox:hover  {
+	border: 2px solid #377edf;
+}
+.textbox:focus  {
+	border: solid 2px #377edf;
+	box-shadow: inset 0px 1px 2px 0px #377edf;
+}
+.textbox:active  {
+	border: solid 2px #377edf;
+}
+.styled_select{
+	background: white;
+	border: solid 2px #5A95E5;
+	font-size: 14px;
+	height: 29px;
+	width: 268px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.user-input {
+	float: left;
+	width: 50%;
+}
+
+.user-output {
+	float: left;
+}
+a.highlight:hover {
+		color: #ff0000;
+}
