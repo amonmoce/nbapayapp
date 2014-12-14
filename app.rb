@@ -18,7 +18,8 @@ class TeamPay < Sinatra::Base
     set :session_secret, "something"    # ignore if not using shotgun in development
   end
 
-  API_BASE_URI = 'http://nbaservice.herokuapp.com'
+  #API_BASE_URI = 'http://nbaservice.herokuapp.com'
+  API_BASE_URI = 'http://nbawas.herokuapp.com'
   #API_BASE_URI = 'http://localhost:9393'
   API_VER = '/api/v1/'
 
